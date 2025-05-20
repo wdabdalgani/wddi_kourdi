@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #f9f7e3, #f3e0c4); /* تأثير خلفية فاتحة ذهبية */
+            margin: 0;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 120px; /* يمكنك تعديل الحجم */
+            animation: logoAnimation 1s ease-in-out;
+        }
+        @keyframes logoAnimation {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        h2 {
+            color: #4b3d28; /* اللون البني الفاتح */
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        label {
+            color: #4b3d28;
+            font-size: 14px;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 2px solid #d1b100; /* اللون الذهبي */
+            background-color: #f8f5d7;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #ffcc00; /* تأثير التركيز باللون الذهبي */
+            box-shadow: 0 0 5px 2px rgba(255, 204, 0, 0.5);
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #d1b100; /* اللون الذهبي */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #f1c232; /* تغيير اللون عند التمرير بالماوس */
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <!-- مكان الشعار -->
+        <img src="your-logo.png" alt="Logo" class="logo"> <!-- ضع رابط الشعار هنا -->
+        
+        <h2>Connexion</h2>
+        <h3>Gestion : Abdeljabbar Hussein</h3>
+        <form id="loginForm">
+            <label for="password">Mot de passe (6 chiffres) :</label>
+            <input type="password" id="password" placeholder="Entrez le mot de passe" required>
+            <button type="submit">Se connecter</button>
+        </form>
+        <p class="error-message" id="error-message"></p> <!-- رسالة الخطأ -->
+    </div>
+
+    <script>
+        // Mot de passe correct
+        const correctPassword = "662299";
+
+        // Gestion de la vérification
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Empêche l'envoi du formulaire par défaut
+
+            // Récupérer le mot de passe saisi
+            const enteredPassword = document.getElementById("password").value;
+
+            // Vérifier le mot de passe
+            if (enteredPassword === correctPassword) {
+                // Si le mot de passe est correct, ouvrir la page demandée
+                window.location.href = "main.html";  // Changez "main.html" par le lien de la page demandée
+            } else {
+                // Si le mot de passe est incorrect, afficher un message d'erreur
+                document.getElementById("error-message").textContent = "Le mot de passe est incorrect !";
+            }
+        });
+    </script>
+
+</body>
+</html>
